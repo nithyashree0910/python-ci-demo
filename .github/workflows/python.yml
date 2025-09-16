@@ -1,0 +1,22 @@
+name: Python Script Check
+
+on:
+  push:
+    branches:
+      - main   # Runs when you push to main branch
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run script
+        run: python hello.py
